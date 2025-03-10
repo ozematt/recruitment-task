@@ -456,19 +456,6 @@ body {
   justify-content: center;
 }
 
-#product-bg-left {
-  position: absolute;
-  left: -20px;
-  bottom: 30%;
-  z-index: -2;
-}
-#product-bg-right {
-  position: absolute;
-  right: -20px;
-  top: 20%;
-  z-index: -2;
-}
-
 .info-grup-title {
   margin-top: 20px;
   font-size: 31px;
@@ -501,26 +488,21 @@ body {
   line-height: 25px;
   padding-top: 20px;
 }
+
 .info-ml {
   margin-top: 20px;
   font-size: 20px;
 }
 
 .product-info-image-section {
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.product-info-image-section img {
-  position: absolute;
-  transition: transform 0.1s ease-out;
-}
-
-#product-img {
-  position: relative;
-  z-index: 2;
+.product-info-image {
+  width: 100%;
+  max-width: 400px;
 }
 
 .hero-btn {
@@ -533,14 +515,25 @@ body {
   color: white;
 }
 
+.product-info-image {
+  width: 100%;
+  max-width: fit-content;
+}
+
+.product-info-image-grup {
+  width: 100%;
+  position: relative;
+}
+
 .product-info-btn {
+  position: absolute;
   border: none;
   background-color: var(--main-color);
   padding: 10px 40px;
   color: white;
-  position: absolute;
-  bottom: 80px;
-  left: 38%;
+  bottom: -5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   font-weight: 700;
 }
 .product-action {
@@ -555,24 +548,32 @@ body {
 }
 
 .dog-section {
-  margin-top: 50px;
+  margin-top: 150px;
   position: relative;
   display: flex;
   justify-content: center;
 }
 
-#dog-bg-left {
-  padding-right: 450px;
+.parallax {
   position: absolute;
-  z-index: -2;
-  transition: transform 0.1s ease-out;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("assets/images/parallex-bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 800px auto;
+  background-position: center 30%;
 }
 
-#dog-bg-right {
-  position: absolute;
-  padding-left: 450px;
-  z-index: -2;
-  transition: transform 0.1s ease-out;
+.dog-image {
+  width: 100%;
+  max-width: fit-content;
+  min-width: 500px;
+  position: relative;
+  z-index: 2;
 }
 
 .product-list {
@@ -643,7 +644,6 @@ label {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  /* display: flex; */
   align-items: center;
   justify-content: center;
 }
@@ -681,10 +681,7 @@ label {
     justify-content: center;
     gap: 60px;
   }
-  .product-info-grup {
-    display: grid;
-    place-items: center;
-  }
+
   .products-container {
     grid-template-columns: 1fr 1fr 1fr;
   }
@@ -705,6 +702,22 @@ label {
   .hero-text > h1 {
     display: none;
   }
+  .product-info-grup {
+    gap: 100px;
+  }
+  .product-info-image-section {
+    display: none;
+  }
+
+  .product-info-hidden {
+    margin-top: 50px;
+  }
+  .product-image-small {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 450px;
+  }
 }
 
 @media (max-width: 1350px) {
@@ -719,6 +732,14 @@ label {
   }
   .three-column {
     padding-top: 170px;
+  }
+  .product-info-grup {
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 910px) {
+  .parallax {
+    background-size: 90% auto;
   }
 }
 
@@ -835,29 +856,19 @@ label {
     font-size: 13px;
     line-height: 16px;
   }
-  .product-image-small {
-    display: block;
-    margin-top: 100px;
+  .product-info-hidden {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
   }
+
   .hidden {
     display: block;
   }
-  #dog {
-    width: 480px;
-  }
-
-  #dog-bg-left {
-    width: 200px;
-    left: 50px;
-    bottom: 300px;
-    padding-right: 20px;
-  }
-
-  #dog-bg-right {
-    width: 200px;
-    right: 50px;
-    bottom: 100px;
-    padding-left: 20px;
+  .dog-section {
+    margin-top: 50px;
   }
 }
 @media (max-width: 670px) {
@@ -894,20 +905,6 @@ label {
 
   #dog {
     width: 380px;
-  }
-
-  #dog-bg-left {
-    width: 150px;
-    left: 10px;
-    bottom: 350px;
-    padding-right: 20px;
-  }
-
-  #dog-bg-right {
-    width: 150px;
-    right: 10px;
-    bottom: 150px;
-    padding-left: 20px;
   }
 }
 @media (max-width: 460px) {

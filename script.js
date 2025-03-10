@@ -1,34 +1,34 @@
 document.addEventListener("DOMContentLoaded", () => {
   //// PARALLEX EFFECT
-  const dogSection = document.querySelector(".dog-section");
-  const dogLeft = document.getElementById("dog-bg-left");
-  const dogRight = document.getElementById("dog-bg-right");
+  // const dogSection = document.querySelector(".dog-section");
+  // const dogLeft = document.getElementById("dog-bg-left");
+  // const dogRight = document.getElementById("dog-bg-right");
 
-  let isDogInView = false;
+  // let isDogInView = false;
 
-  const dogObserver = new IntersectionObserver(
-    ([entry]) => {
-      if (entry.isIntersecting) {
-        isDogInView = true;
-      } else {
-        isDogInView = false;
-      }
-    },
-    {
-      rootMargin: "100px",
-      threshold: 0.5,
-    }
-  );
+  // const dogObserver = new IntersectionObserver(
+  //   ([entry]) => {
+  //     if (entry.isIntersecting) {
+  //       isDogInView = true;
+  //     } else {
+  //       isDogInView = false;
+  //     }
+  //   },
+  //   {
+  //     rootMargin: "100px",
+  //     threshold: 0.5,
+  //   }
+  // );
 
-  dogObserver.observe(dogSection);
+  // dogObserver.observe(dogSection);
 
-  window.addEventListener("scroll", () => {
-    if (isDogInView) {
-      const scrollY = window.scrollY;
-      dogLeft.style.transform = "translateY(" + scrollY * 0.08 + "px)";
-      dogRight.style.transform = "translateY(" + scrollY * 0.05 + "px)";
-    }
-  });
+  // window.addEventListener("scroll", () => {
+  //   if (isDogInView) {
+  //     const scrollY = window.scrollY;
+  //     dogLeft.style.transform = "translateY(" + scrollY * 0.08 + "px)";
+  //     dogRight.style.transform = "translateY(" + scrollY * 0.05 + "px)";
+  //   }
+  // });
 
   //// NAV LINKS UNDERLINING
   const links = document.querySelectorAll(".nav-link");

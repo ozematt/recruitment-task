@@ -40,7 +40,7 @@
     </div>
 
     <!-- HERO SECTION -->
-    <main class="main container section">
+    <main class="main container">
       <img src="assets/images/hero-image.png" alt="product image" />
       <img src="assets/images/hero-bg01.svg" alt="bg image" id="main-bg-el1" />
       <img src="assets/images/hero-bg02.svg" alt="bg image" id="main-bg-el2" />
@@ -59,7 +59,7 @@
     </main>
 
     <!-- THREE COLUMN SECTION -->
-    <section class="three-column container section" id="threeColumn">
+    <section class="three-column container" id="threeColumn">
       <h2 class="section-title">Co wyróżnia nasz preparat</h2>
       <div class="columns-grup">
         <div class="column">
@@ -164,7 +164,7 @@
     </section>
 
     <!-- PRODUCT ACTION SECTION -->
-    <section class="product-action section container" id="productAction">
+    <section class="product-action container" id="productAction">
       <h2 class="section-title">Działanie preparatu</h2>
       <div class="point-list">
         <div class="point-el">
@@ -200,7 +200,7 @@
     </section>
 
     <!-- PRODUCT INFO SECTION -->
-    <section class="product-info container section" id="productInfo">
+    <section class="product-info container" id="productInfo">
       <h2 class="section-title">Skład w 5 ml</h2>
       <h4>Co dają poszczególne składniki:</h4>
       <!-- left side -->
@@ -259,24 +259,15 @@
 
         <!-- middle -->
         <div class="product-info-image-section">
-          <img
-            src="assets/images/product-image.png"
-            alt="product image"
-            id="product-img"
-          />
-          <img
-            src="assets/images/product-bg-left.png"
-            alt="product image"
-            class="parallax"
-            id="product-bg-left"
-          />
-          <img
-            src="assets/images/product-bg-right.png"
-            alt="product image"
-            class="parallax"
-            id="product-bg-right"
-          />
-          <button class="product-info-btn">Kup teraz</button>
+          <div class="product-info-image-grup">
+            <img
+              src="assets/images/product-image.png"
+              alt="product image"
+              class="product-info-image"
+            />
+
+            <button class="product-info-btn">Kup teraz</button>
+          </div>
         </div>
         <!-- right side-->
         <div>
@@ -325,41 +316,35 @@
               stanu zapalnego i bólu. MSM może również pomagać w produkcji
               kolagenu, co przyczynia się do zdrowia chrząstki stawowej.
             </p>
-            <div class="info-grup hidden">
-              <img
-                src="assets/images/icon06.svg"
-                alt="icon"
-                class="info-grup-icon"
-              />
-              <h4 class="info-grup-title">Syrop glukozowo - fruktozowy</h4>
-              <p class="info-ml">250 mg</p>
-            </div>
-            <img
-              src="assets/images/product-small.png"
-              alt="product image"
-              class="product-image-small"
-            />
           </div>
         </div>
       </div>
+      <div class="product-info-hidden">
+        <div class="info-grup hidden">
+          <img
+            src="assets/images/icon06.svg"
+            alt="icon"
+            class="info-grup-icon"
+          />
+          <h4 class="info-grup-title">Syrop glukozowo - fruktozowy</h4>
+          <p class="info-ml">250 mg</p>
+        </div>
+        <img
+          src="assets/images/product-image.png"
+          alt="product image"
+          class="product-image-small"
+        />
+      </div>
     </section>
 
+    <!-- DOG PARALLAX -->
     <section class="dog-section container">
-      <img src="assets/images/dog.png" alt="dog image" id="dog" />
-      <img
-        src="assets/images/dog-bg-left.svg"
-        alt="bg image"
-        id="dog-bg-left"
-      />
-      <img
-        src="assets/images/dog-bg-right.svg"
-        alt="bg image"
-        id="dog-bg-right"
-      />
+      <div class="parallax"></div>
+      <img src="assets/images/dog.png" alt="dog image" class="dog-image" />
     </section>
 
     <!-- PRODUCT LIST SECTION -->
-    <section class="product-list container section" id="productList">
+    <section class="product-list container" id="productList">
       <div class="page-select">
         <label for="products">liczba produktów na stronie</label>
         <select id="products-quantity" name="products">
