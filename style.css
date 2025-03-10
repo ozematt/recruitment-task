@@ -623,11 +623,9 @@ label {
   height: 350px;
   background: var(--circle-color);
   cursor: pointer;
-}
-
-.product-card img {
-  max-width: 95%;
-  object-fit: contain;
+  font-size: 31px;
+  display: grid;
+  place-items: center;
 }
 
 .error {

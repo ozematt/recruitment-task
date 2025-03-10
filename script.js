@@ -1,35 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  //// PARALLEX EFFECT
-  // const dogSection = document.querySelector(".dog-section");
-  // const dogLeft = document.getElementById("dog-bg-left");
-  // const dogRight = document.getElementById("dog-bg-right");
-
-  // let isDogInView = false;
-
-  // const dogObserver = new IntersectionObserver(
-  //   ([entry]) => {
-  //     if (entry.isIntersecting) {
-  //       isDogInView = true;
-  //     } else {
-  //       isDogInView = false;
-  //     }
-  //   },
-  //   {
-  //     rootMargin: "100px",
-  //     threshold: 0.5,
-  //   }
-  // );
-
-  // dogObserver.observe(dogSection);
-
-  // window.addEventListener("scroll", () => {
-  //   if (isDogInView) {
-  //     const scrollY = window.scrollY;
-  //     dogLeft.style.transform = "translateY(" + scrollY * 0.08 + "px)";
-  //     dogRight.style.transform = "translateY(" + scrollY * 0.05 + "px)";
-  //   }
-  // });
-
   //// NAV LINKS UNDERLINING
   const links = document.querySelectorAll(".nav-link");
   const sections = document.querySelectorAll(".section");
@@ -76,16 +45,16 @@ document.addEventListener("DOMContentLoaded", () => {
       <div class="product-card" 
       data-name="${product.text}"  
       data-product-id="${product.id}" >
-        <img src="${product.image}" alt="${product.text}">
+      <p>ID: ${product.id}</p>
       </div>
     `;
 
   // products fetching
   const loadProducts = async (pageSize, pageNumber = 1, append = false) => {
     if (isFetching || !hasMore) return;
-    isFetching = true;
 
     try {
+      isFetching = true;
       const response = await fetch(
         `https://brandstestowy.smallhost.pl/api/random?pageNumber=${pageNumber}&pageSize=${pageSize}`
       );
@@ -93,8 +62,8 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!response.ok) throw new Error("Data fetch error");
 
       const data = await response.json();
-      hasMore = data.data.length > 0;
-      console.log("Fetched data:", data); // Debug info
+      hasMore = data.data.length >= pageSize;
+      console.log(`Page: ${pageNumber}, Size: ${pageSize}`, data); // Debug info
 
       if (append) {
         productsContainer.innerHTML += data.data
@@ -121,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
       ([entry]) => {
         if (entry.isIntersecting) {
           currentPage++;
-          loadProducts(currentPage, currentPageSize, true);
+          loadProducts(currentPageSize, currentPage, true);
           observer.disconnect();
         }
       },
@@ -135,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const observer = new IntersectionObserver(
     ([entry]) => {
       if (entry.isIntersecting && !isProductsLoaded) {
-        loadProducts(currentPageSize);
+        loadProducts(currentPageSize, 1);
         isProductsLoaded = true;
         observer.disconnect();
       }
@@ -150,10 +119,11 @@ document.addEventListener("DOMContentLoaded", () => {
   observer.observe(sentinel);
 
   pageSizeSelect.addEventListener("change", (e) => {
+    currentPage = 1;
     currentPageSize = parseInt(e.target.value);
     hasMore = true;
     productsContainer.innerHTML = "";
-    loadProducts(currentPageSize);
+    loadProducts(currentPageSize, 1);
   });
 
   //// POPUP
