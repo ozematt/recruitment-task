@@ -124,14 +124,25 @@ body {
   padding: 0;
   margin: 0;
 }
+#hamburger-menu {
+  cursor: pointer;
+}
+
+.modal-menu-container {
+  visibility: hidden;
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+}
 
 .modal-menu {
   position: fixed;
-  top: 70px;
+  top: -60px;
   right: -100%;
   padding: 30px 0;
   background-color: var(--main-color);
-  width: 500px;
+  width: 100%;
+  max-width: 400px;
   height: 230px;
   color: white;
   transition: right 0.3s ease-in-out;
@@ -140,6 +151,7 @@ body {
   align-items: center;
   justify-content: space-between;
   z-index: 1000;
+  transform: translate(50%, 50%);
 }
 
 .modal-bg {
@@ -153,22 +165,27 @@ body {
   visibility: hidden;
   transition: opacity 0.3s ease-in-out;
   z-index: 90;
+  cursor: pointer;
 }
 
 .modal-menu.active {
-  right: 5%;
+  right: 50%;
 }
 
 .modal-bg.active {
   opacity: 1;
   visibility: visible;
 }
+.modal-menu-container.active {
+  visibility: visible;
+}
 
-.modal-menu > p {
+.modal-menu > a {
   opacity: 0.8;
   cursor: pointer;
 }
-.modal-menu > p:hover {
+
+.modal-menu > a:hover {
   opacity: 1;
   text-decoration: underline;
 }
@@ -178,6 +195,13 @@ body {
   margin-top: 120px;
   display: flex;
   position: relative;
+}
+
+.main > img:first-child {
+  width: 100%;
+  max-width: 900px;
+  margin-top: 70px;
+  z-index: 1;
 }
 
 #main-bg-el1,
@@ -426,8 +450,8 @@ body {
   text-align: center;
 }
 
-.product-info {
-  margin-top: 50px;
+.product-info > h2 {
+  padding-top: 80px;
 }
 
 .product-info > h4 {
@@ -538,8 +562,11 @@ body {
 }
 .product-action {
   display: none;
-  margin-top: 70px;
 }
+.product-action > h2 {
+  padding-top: 80px;
+}
+
 .product-image-small {
   display: none;
 }
@@ -633,7 +660,15 @@ label {
   text-align: center;
 }
 
-.modal {
+.close-btn {
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.popup {
   display: none;
   position: fixed;
   z-index: 1000;
@@ -646,7 +681,7 @@ label {
   justify-content: center;
 }
 
-.modal-content {
+.popup-content {
   background: white;
   padding: 20px;
   max-width: 843px;
@@ -657,19 +692,8 @@ label {
   position: relative;
   font-size: 31px;
 }
-.modal-content > p {
+.popup-content > p {
   margin-top: 20px;
-}
-
-.close-btn {
-  position: absolute;
-  top: 5px;
-  right: 15px;
-  font-size: 24px;
-  cursor: pointer;
-}
-#hamburger-menu {
-  cursor: pointer;
 }
 
 @media (max-width: 1865px) {
@@ -730,6 +754,7 @@ label {
   }
   .three-column {
     padding-top: 170px;
+    padding-bottom: 100px;
   }
   .product-info-grup {
     flex-wrap: wrap;
@@ -769,8 +794,6 @@ label {
 
   .main > img {
     margin-top: 120px;
-    width: 290px;
-    height: 368px;
   }
   .logo {
     font-size: 20px;
@@ -790,6 +813,9 @@ label {
   .section-title {
     font-size: 20px;
     line-height: 25px;
+  }
+  .column {
+    padding-top: 70px;
   }
 
   .column > h4 {
@@ -869,6 +895,7 @@ label {
     margin-top: 50px;
   }
 }
+
 @media (max-width: 670px) {
   .product-card {
     width: 110px;
@@ -885,34 +912,10 @@ label {
   label {
     margin-right: 0;
   }
-  .modal-content {
-    font-size: 26px;
-    margin-top: 40px;
-  }
-
-  .modal-menu {
-    width: 400px;
-  }
 }
 
-@media (max-width: 500px) {
-  .modal-content {
-    font-size: 20px;
-    height: 220px;
-  }
-
-  #dog {
-    width: 380px;
-  }
-}
-@media (max-width: 460px) {
+@media (max-width: 440px) {
   .modal-menu {
-    width: 290px;
-    height: 230px;
-    font-size: 13px;
-    line-height: 16px;
-  }
-  .modal-menu.active {
-    right: 0;
+    max-width: 290px;
   }
 }

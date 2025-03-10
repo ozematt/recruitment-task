@@ -28,13 +28,15 @@
     </header>
 
     <!-- SLIDE MENU -->
-    <div>
+    <div class="modal-menu-container">
       <div class="modal-menu">
-        <p>DZIAŁANIE PREPARATU</p>
-        <p>ZALECENIA</p>
-        <p>SKŁAD</p>
-        <p>DAWKOWANIE</p>
-        <p>OPINIE</p>
+        <a href="#productAction" class="hamburger-menu-link"
+          >DZIAŁANIE PREPARATU</a
+        >
+        <a href="#" class="hamburger-menu-link">ZALECENIA</a>
+        <a href="#productInfo" class="hamburger-menu-link">SKŁAD</a>
+        <a href="#dosing" class="hamburger-menu-link">DAWKOWANIE</a>
+        <a href="#" class="hamburger-menu-link">OPINIE</a>
       </div>
       <div class="modal-bg"></div>
     </div>
@@ -59,7 +61,7 @@
     </main>
 
     <!-- THREE COLUMN SECTION -->
-    <section class="three-column container" id="threeColumn">
+    <section class="three-column container section" id="threeColumn">
       <h2 class="section-title">Co wyróżnia nasz preparat</h2>
       <div class="columns-grup">
         <div class="column">
@@ -129,7 +131,7 @@
             />
           </div>
         </div>
-        <div class="column">
+        <div class="column" id="dosing">
           <h4>
             Skuteczność - <br />
             skoncentrowana dawka
@@ -178,7 +180,10 @@
         </div>
         <div class="point-el">
           <div class="circle"><span class="point">3</span></div>
-          <p>Zmniejszenie stanu zapalnego i bólu</p>
+          <p>
+            Zmniejszenie stanu zapalnego <br />
+            i bólu
+          </p>
         </div>
         <div class="point-el">
           <div class="circle"><span class="point">4</span></div>
@@ -190,7 +195,10 @@
         </div>
         <div class="point-el">
           <div class="circle"><span class="point">6</span></div>
-          <p>Regeneracja po urazach i zabiegach ortopedycznych</p>
+          <p>
+            Regeneracja po urazach <br />
+            i zabiegach ortopedycznych
+          </p>
         </div>
         <div class="point-el">
           <div class="circle"><span class="point">7</span></div>
@@ -200,7 +208,7 @@
     </section>
 
     <!-- PRODUCT INFO SECTION -->
-    <section class="product-info container" id="productInfo">
+    <section class="product-info container section" id="productInfo">
       <h2 class="section-title">Skład w 5 ml</h2>
       <h4>Co dają poszczególne składniki:</h4>
       <!-- left side -->
@@ -344,7 +352,7 @@
     </section>
 
     <!-- PRODUCT LIST SECTION -->
-    <section class="product-list container" id="productList">
+    <section class="product-list container section" id="productList">
       <div class="page-select">
         <label for="products">liczba produktów na stronie</label>
         <select id="products-quantity" name="products">
@@ -356,8 +364,8 @@
 
       <div class="products-container"></div>
 
-      <div id="product-modal" class="modal">
-        <div class="modal-content">
+      <div id="product-popup" class="popup">
+        <div class="popup-content">
           <span class="close-btn">x</span>
           <p>ID: <span id="product-id"></span></p>
           <p>Nazwa: <span id="product-title"></span></p>

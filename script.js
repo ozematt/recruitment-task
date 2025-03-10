@@ -127,10 +127,10 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   //// POPUP
-  const modal = document.getElementById("product-modal");
-  const productId = document.getElementById("product-id");
-  const productTitle = document.getElementById("product-title");
-  const productPrice = document.getElementById("product-price");
+  const modal = document.querySelector("#product-popup");
+  const productId = document.querySelector("#product-id");
+  const productTitle = document.querySelector("#product-title");
+  const productPrice = document.querySelector("#product-price");
   const closeModalBtn = document.querySelector(".close-btn");
 
   let productValue = 100; // hardcoded coz do not have it in fetched data
@@ -171,20 +171,32 @@ document.addEventListener("DOMContentLoaded", () => {
       openModal(product);
     });
 
-  //// slide menu
+  //// SLIDE MENU
   const menu = document.querySelector(".modal-menu");
   const bg = document.querySelector(".modal-bg");
   const hamburger = document.querySelector("#hamburger-menu");
+  const menuLinks = document.querySelectorAll(".hamburger-menu-link");
+  const menuContainer = document.querySelector(".modal-menu-container");
 
   //handle hamburger icon click
   hamburger.addEventListener("click", () => {
     menu.classList.toggle("active");
     bg.classList.toggle("active");
+    menuContainer.classList.toggle("active");
   });
 
   //handle bg click
   bg.addEventListener("click", () => {
     menu.classList.remove("active");
     bg.classList.remove("active");
+    menuContainer.classList.remove("active");
+  });
+
+  menuLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      menuContainer.classList.remove("active");
+      menu.classList.remove("active");
+      bg.classList.remove("active");
+    });
   });
 });
