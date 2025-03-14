@@ -49,6 +49,9 @@ body {
   font-family: "Futura PT", sans-serif;
   line-height: 1.6;
 }
+button {
+  cursor: pointer;
+}
 
 .container {
   width: 100%;
@@ -626,13 +629,13 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 800px auto;
-  background-position: center 30%;
+  background-position: center 40%;
 }
 
 .dog-image {
   width: 100%;
   max-width: fit-content;
-  min-width: 500px;
+  min-width: 300px;
   position: relative;
   z-index: 2;
 }
@@ -882,7 +885,8 @@ label {
     text-align: center;
   }
   .column-image > img:last-child {
-    width: 275px;
+    width: 100%;
+    max-width: 275px;
     height: 275px;
     object-fit: cover;
   }

@@ -134,6 +134,19 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeModalBtn = document.querySelector(".close-btn");
 
   let productValue = 100; // hardcoded coz do not have it in fetched data
+  let popupOpen = false;
+
+  // scroll lock
+  function disableScroll() {
+    document.body.style.overflow = "hidden";
+    document.body.style.height = "100vh";
+  }
+
+  // unlock scroll
+  function enableScroll() {
+    document.body.style.overflow = "";
+    document.body.style.height = "";
+  }
 
   // popup open fn
   function openModal(product) {
@@ -142,17 +155,23 @@ document.addEventListener("DOMContentLoaded", () => {
     productPrice.innerText = productValue;
 
     modal.style.display = "flex";
+    disableScroll(); // scroll lock
+    popupOpen = true;
   }
 
   // popup close
-  closeModalBtn.addEventListener("click", () => {
+  function closeModal() {
     modal.style.display = "none";
-  });
+    enableScroll(); // unlock scroll
+    popupOpen = false;
+  }
+
+  closeModalBtn.addEventListener("click", closeModal);
 
   // popup close - click on bg
   modal.addEventListener("click", (e) => {
     if (e.target === modal) {
-      modal.style.display = "none";
+      closeModal();
     }
   });
 
@@ -180,9 +199,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //handle hamburger icon click
   hamburger.addEventListener("click", () => {
-    menu.classList.toggle("active");
+    const isOpen = menu.classList.toggle("active");
     bg.classList.toggle("active");
     menuContainer.classList.toggle("active");
+    if (isOpen) {
+      disableScroll(); // lock scroll
+    } else {
+      enableScroll(); // unlock scroll
+    }
   });
 
   //handle bg click
@@ -190,6 +214,7 @@ document.addEventListener("DOMContentLoaded", () => {
     menu.classList.remove("active");
     bg.classList.remove("active");
     menuContainer.classList.remove("active");
+    enableScroll(); // unlock scroll
   });
 
   menuLinks.forEach((link) => {
@@ -197,6 +222,7 @@ document.addEventListener("DOMContentLoaded", () => {
       menuContainer.classList.remove("active");
       menu.classList.remove("active");
       bg.classList.remove("active");
+      enableScroll(); // unlock scroll
     });
   });
 });
