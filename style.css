@@ -205,7 +205,8 @@ body {
 }
 
 #main-bg-el1,
-#main-bg-el2 {
+#main-bg-el2,
+#main-bg-el3 {
   position: absolute;
 }
 
@@ -217,6 +218,11 @@ body {
 #main-bg-el2 {
   right: 0;
   bottom: -400px;
+  z-index: 0;
+}
+#main-bg-el3 {
+  right: 0;
+  top: 650px;
   z-index: 0;
 }
 
@@ -365,7 +371,7 @@ body {
   font-weight: 400;
   font-size: 20px;
   line-height: 25px;
-  text-align: justify;
+  text-align: center;
 }
 .column-image {
   position: relative;
@@ -375,37 +381,41 @@ body {
 
 #column1-bg-el1,
 #column1-bg-el2,
-#column2-bg-el1,
-#column2-bg-el2,
-#column3-bg-el1,
-#column3-bg-el2 {
+#column2-bg-el3,
+#column2-bg-el4,
+#column3-bg-el5,
+#column3-bg-el6 {
   position: absolute;
   z-index: -1;
 }
 
 #column1-bg-el1 {
-  right: -50px;
-  bottom: 50px;
+  right: -30px;
+  top: 60px;
 }
+
 #column1-bg-el2 {
-  left: -70px;
-  bottom: 20px;
+  left: -40px;
+  bottom: 0px;
 }
-#column2-bg-el1 {
-  right: -10px;
-  bottom: 50px;
-}
-#column2-bg-el2 {
-  left: -50px;
+
+#column2-bg-el3 {
+  left: -40px;
   bottom: 10px;
 }
-#column3-bg-el2 {
-  right: -10px;
-  bottom: 30px;
+
+#column2-bg-el4 {
+  right: 10px;
+  bottom: 10px;
 }
-#column3-bg-el1 {
+
+#column3-bg-el5 {
   left: -50px;
-  bottom: 90px;
+  bottom: 50px;
+}
+#column3-bg-el6 {
+  right: 10px;
+  bottom: 30px;
 }
 
 .column > img {
